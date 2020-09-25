@@ -1,0 +1,13 @@
+Source: traffictoll
+Section: net
+Priority: optional
+Maintainer: Nate Marti <nate_marti@sil.org>
+Build-Depends: debhelper (>= 9.0.0), dh-python
+Standards-Version: 3.9.7
+Homepage: https://github.com/wasta-linux/python3-traffictoll
+
+Package: python3-traffictoll
+Architecture: all
+Depends: python3, ${shlibs:Depends}, ${misc:Depends}
+Suggests:
+Description: Debian package of PyPI traffictoll package.
