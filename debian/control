@@ -1,4 +1,4 @@
-Source: traffictoll
+Source: python3-traffictoll
 Section: net
 Priority: optional
 Maintainer: Nate Marti <nate_marti@sil.org>
