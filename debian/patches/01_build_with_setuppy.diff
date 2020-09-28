@@ -1,0 +1,15 @@
+Description: Use setuptools instead of poetry to build the package.
+Author: Nate Marti <nate_marti@sil.org>
+Last-Update: 2020-09-28
+Index: python3-traffictoll/pyproject.toml
+===================================================================
+--- python3-traffictoll.orig/pyproject.toml
++++ python3-traffictoll/pyproject.toml
+@@ -25,5 +25,5 @@ black = "^19.10b0"
+ mypy = "^0.761"
+ 
+ [build-system]
+-requires = ["poetry>=0.12"]
+-build-backend = "poetry.masonry.api"
++requires = ["setuptools >= 40.6.0", "wheel"]
++build-backend = "setuptools.build_meta"
