@@ -2,7 +2,7 @@ Source: python3-traffictoll
 Section: net
 Priority: optional
 Maintainer: Nate Marti <nate_marti@sil.org>
-Build-Depends: debhelper (>= 11~), dh-python, python3-setuptools, python3-all, python3-pip
+Build-Depends: debhelper (>= 11~), dh-python, python3-setuptools, python3-all
 Standards-Version: 3.9.7
 Homepage: https://github.com/wasta-linux/python3-traffictoll
 
