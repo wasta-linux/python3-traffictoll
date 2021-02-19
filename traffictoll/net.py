@@ -5,7 +5,8 @@ import shlex
 from typing import DefaultDict, Iterable, Set
 
 import psutil
-from loguru import logger
+#from loguru import logger
+import logging as logger
 
 # noinspection PyProtectedMember
 from psutil._common import pconn

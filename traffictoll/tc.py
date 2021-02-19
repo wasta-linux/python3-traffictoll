@@ -4,7 +4,8 @@ import subprocess
 from typing import Iterable, Optional, Tuple, Set, Union, NamedTuple
 
 import psutil
-from loguru import logger
+#from loguru import logger
+import logging as logger
 
 from .utils import run
 
