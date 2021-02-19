@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+from traffictoll import __main__
+__main__.main()
+
+##!/bin/bash
+#python3 -c "from traffictoll import __main__; __main__.main()" "$1" "$2"
