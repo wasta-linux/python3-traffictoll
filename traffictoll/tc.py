@@ -88,7 +88,8 @@ def _get_free_qdisc_id(device: str) -> int:
     for line in process.stdout.splitlines():
         match = QDISC_ID_REGEX.match(line)
         if not match:
-            logger.warning("Failed to parse line: {!r}", line)
+            #logger.warning("Failed to parse line: {!r}", line)
+            logger.warning(f"Failed to parse line: {line}")
             continue
 
         id_string = match.group(1)
@@ -97,7 +98,8 @@ def _get_free_qdisc_id(device: str) -> int:
         except ValueError:
             # This should only happen for the ingress QDisc
             logger.debug(
-                "Failed to parse QDisc ID as base 10 integer on line: {!r}", line
+                #"Failed to parse QDisc ID as base 10 integer on line: {!r}", line
+                f"Failed to parse QDisc ID as base 10 integer on line: {line}"
             )
             id_ = int(id_string, 16)
 
@@ -115,7 +117,8 @@ def _get_free_class_id(device: str, qdisc_id: int) -> int:
     for line in process.stdout.splitlines():
         match = CLASS_ID_REGEX.match(line)
         if not match:
-            logger.warning("Failed to parse line: {!r}", line)
+            #logger.warning("Failed to parse line: {!r}", line)
+            logger.warning(f"Failed to parse line: {line}")
             continue
 
         groups = match.groupdict()
@@ -225,7 +228,8 @@ def tc_add_u32_filter(qdisc: QDisc, predicate: str, class_id: int,) -> str:
 
     difference = after.difference(before)
     if len(difference) > 1:
-        logger.warning("Parsed ambiguous filter handle: {}", difference)
+        #logger.warning("Parsed ambiguous filter handle: {}", difference)
+        logger.warning(f"Parsed ambiguous filter handle: {difference}")
     return difference.pop()
 
 

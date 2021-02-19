@@ -44,8 +44,9 @@ def filter_net_connections(
             connections.update(process.connections())
         except psutil.NoSuchProcess:
             logger.debug(
-                "Process with PID {} died while filtering network connections",
-                process.pid,
+                #"Process with PID {} died while filtering network connections",
+                #process.pid,
+                f"Process with PID {process.pid} died while filtering network connections",
             )
             continue
 
