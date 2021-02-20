@@ -10,4 +10,4 @@ Package: python3-traffictoll
 Architecture: all
 Depends: ${python3:Depends}, ${misc:Depends}
 Suggests:
-Description: Debian package of PyPI traffictoll package.
+Description: Debian package forked from PyPI traffictoll package.
