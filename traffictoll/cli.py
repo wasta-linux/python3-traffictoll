@@ -5,7 +5,6 @@ import enum
 import time
 from typing import Dict, DefaultDict, Set
 
-#from loguru import logger
 import logging as logger
 
 from ruamel.yaml import YAML
@@ -90,17 +89,14 @@ def main(arguments: argparse.Namespace) -> None:
         try:
             result = test_speed()
         except MissingDependencyError as error:
-            #logger.error("Missing dependency: {}", error)
             logger.error(f"Missing dependency: {error}")
             result = None
         except DependencyOutputError as error:
-            #logger.error("Dependency output error: {}", error)
             logger.error(f"Dependency output error: {error}")
             result = None
 
         if result:
             logger.info(
-                #"Determined download speed: {}bps, upload speed: {}bps", *result
                 f"Determined download speed: {result[0]}bps, upload speed: {result[1]}bps"
             )
             config_global_download_rate, config_global_upload_rate = result
@@ -148,20 +144,11 @@ def main(arguments: argparse.Namespace) -> None:
     )
     if config_global_download_rate is not None:
         logger.info(
-            #"Setting up global class with max download rate: {} (minimum: {}) and "
-            #"priority: {}",
-            #global_download_rate,
-            #global_download_minimum_rate,
-            #global_download_priority,
             f"Setting up global class with max download rate: {global_download_rate} (minimum: {global_download_minimum_rate}) and "
             f"priority: {global_download_priority}",
         )
     else:
         logger.info(
-            #"Setting up global class with unlimited download rate (minimum: {}) and "
-            #"priority: {}",
-            #global_download_minimum_rate,
-            #global_download_priority,
             f"Setting up global class with unlimited download rate (minimum: {global_download_minimum_rate}) and "
             f"priority: {global_download_priority}"
         )
@@ -174,20 +161,11 @@ def main(arguments: argparse.Namespace) -> None:
     )
     if config_global_upload_rate is not None:
         logger.info(
-            #"Setting up global class with max upload rate: {} (minimum: {}) and "
-            #"priority: {}",
-            #global_upload_rate,
-            #global_upload_minimum_rate,
-            #global_upload_priority,
             f"Setting up global class with max upload rate: {global_upload_rate} (minimum: {global_upload_minimum_rate}) and "
             f"priority: {global_upload_priority}",
         )
     else:
         logger.info(
-            #"Setting up global class with unlimited upload rate (minimum: {}) and "
-            #"priority: {}",
-            #global_upload_minimum_rate,
-            #global_upload_priority,
             f"Setting up global class with unlimited upload rate (minimum: {global_upload_minimum_rate}) and "
             f"priority: {global_upload_priority}",
         )
@@ -213,7 +191,6 @@ def main(arguments: argparse.Namespace) -> None:
         conditions = [list(match.items())[0] for match in process.get("match", [])]
         if not conditions:
             logger.warning(
-                #"No conditions for: {!r} specified, it will never be matched", name
                 f"No conditions for: {name} specified, it will never be matched"
             )
             continue
@@ -262,12 +239,6 @@ def main(arguments: argparse.Namespace) -> None:
 
         if config_download_rate is not None:
             logger.info(
-                #"Setting up class for: {!r} with max download rate: {} (minimum: {}) "
-                #"and priority: {}",
-                #name,
-                #download_rate,
-                #download_minimum_rate,
-                #download_priority,
                 f"Setting up class for: {name} with max download rate: {download_rate} (minimum: {download_minimum_rate}) "
                 f"and priority: {download_priority}",
             )
@@ -277,11 +248,6 @@ def main(arguments: argparse.Namespace) -> None:
             class_ids[_TrafficType.Ingress][name] = ingress_class_id
         elif config_download_priority is not None:
             logger.info(
-                #"Setting up class for: {!r} with unlimited download rate (minimum: {}) "
-                #"and priority: {}",
-                #name,
-                #download_minimum_rate,
-                #download_priority,
                 f"Setting up class for: {name} with unlimited download rate (minimum: {download_minimum_rate}) "
                 f"and priority: {download_priority}",
             )
@@ -292,12 +258,6 @@ def main(arguments: argparse.Namespace) -> None:
 
         if config_upload_rate is not None:
             logger.info(
-                #"Setting up class for: {!r} with max upload rate: {} (minimum: {}) and "
-                #"priority: {}",
-                #name,
-                #upload_rate,
-                #upload_minimum_rate,
-                #upload_priority,
                 f"Setting up class for: {name} with max upload rate: {upload_rate} (minimum: {upload_minimum_rate}) and "
                 f"priority: {upload_priority}",
             )
@@ -307,11 +267,6 @@ def main(arguments: argparse.Namespace) -> None:
             class_ids[_TrafficType.Egress][name] = egress_class_id
         elif config_upload_priority is not None:
             logger.info(
-                #"Setting up class for: {!r} with unlimited upload rate (minimum: {}) "
-                #"and priority: {}",
-                #name,
-                #upload_minimum_rate,
-                #upload_priority,
                 f"Setting up class for: {name} with unlimited upload rate (minimum: {upload_minimum_rate}) "
                 f"and priority: {upload_priority}",
             )
@@ -360,9 +315,6 @@ def main(arguments: argparse.Namespace) -> None:
             new_ports = sorted(ports.difference(filtered_ports[name]))
             if new_ports:
                 logger.info(
-                    #"Shaping traffic for {!r} on local ports {}",
-                    #name,
-                    #", ".join(map(str, new_ports)),
                     f"Shaping traffic for {name} on local ports {', '.join(map(str, new_ports))}"
                 )
                 for port in new_ports:
@@ -375,9 +327,6 @@ def main(arguments: argparse.Namespace) -> None:
             freed_ports = sorted(filtered_ports[name].difference(ports))
             if freed_ports:
                 logger.info(
-                    #"Removing filters for {!r} on local ports {}",
-                    #name,
-                    #", ".join(map(str, freed_ports)),
                     f"Removing filters for {name} on local ports {', '.join(map(str, freed_ports))}"
                 )
                 for port in freed_ports:
@@ -391,9 +340,6 @@ def main(arguments: argparse.Namespace) -> None:
             freed_ports = sorted(filtered_ports[name])
             if freed_ports:
                 logger.info(
-                    #"Removing filters for {!r} on local ports {}",
-                    #name,
-                    #", ".join(map(str, freed_ports)),
                     f"Removing filters for {name} on local ports {', '.join(map(str, freed_ports))}"
                 )
                 for port in freed_ports:

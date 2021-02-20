@@ -4,7 +4,6 @@ import shutil
 import subprocess
 from typing import Optional
 
-#from loguru import logger
 import logging as logger
 
 from .exceptions import MissingDependencyError

@@ -5,7 +5,6 @@ import shlex
 from typing import DefaultDict, Iterable, Set
 
 import psutil
-#from loguru import logger
 import logging as logger
 
 # noinspection PyProtectedMember
@@ -44,8 +43,6 @@ def filter_net_connections(
             connections.update(process.connections())
         except psutil.NoSuchProcess:
             logger.debug(
-                #"Process with PID {} died while filtering network connections",
-                #process.pid,
                 f"Process with PID {process.pid} died while filtering network connections",
             )
             continue
