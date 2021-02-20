@@ -18,12 +18,11 @@ def main() -> None:
     except KeyboardInterrupt:
         logger.info("Aborted")
     except ConfigError as error:
-        logger.error("Invalid configuration: {}", error)
+        logger.error(f"Invalid configuration: {error}")
     except MissingDependencyError as error:
-        logger.error("Missing dependency: {}", error)
+        logger.error(f"Missing dependency: {error}")
     except Exception as e:
-        print(e)
-        logger.exception("Unexpected error occurred: ")
+        logger.exception(f"Unexpected error occurred: {e}")
 
 
 if __name__ == "__main__":
