@@ -1,6 +1,7 @@
 python3-traffictoll (0.3) focal; urgency=medium
 
   * Remove dependency on loguru.
+  * Fully separate the fork from original repo.
 
  -- Nate Marti <nate_marti@sil.org>  Fri, 19 Feb 2021 16:50:35 +0100
 
