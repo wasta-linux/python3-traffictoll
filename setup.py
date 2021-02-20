@@ -36,6 +36,6 @@ setup(
     packages=['traffictoll'],
     package_dir={"": "."},
     package_data={},
-    install_requires=['loguru==0.*,>=0.4.1', 'psutil==5.*,>=5.6.7', 'ruamel.yaml==0.*,>=0.16.6'],
+    install_requires=['psutil==5.*,>=5.6.7', 'ruamel.yaml==0.*,>=0.16.6'],
     extras_require={"dev": ["black==19.*,>=19.10.0.b0", "mypy==0.*,>=0.761.0"]},
 )
