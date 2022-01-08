@@ -1,3 +1,9 @@
+python3-traffictoll (0.4) jammy; urgency=medium
+
+  * Update for jammy builds.
+
+ -- Nate Marti <nate_marti@sil.org>  Sat, 08 Jan 2022 14:35:19 +0100
+
 python3-traffictoll (0.3) focal; urgency=medium
 
   * Remove dependency on loguru.
