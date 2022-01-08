@@ -7,16 +7,13 @@ except ImportError:
     from distutils.core import setup
 
 
-#import os.path
 import re
 from pathlib import Path
 
+# Get readme from README.md.
 readme = ''
-#here = os.path.abspath(os.path.dirname(__file__))
 repo_home = Path(__file__).resolve().parents[0]
-#readme_path = os.path.join(here, 'README.md')
 readme_path = repo_home / 'README.md'
-#if os.path.exists(readme_path):
 if readme_path.is_file():
     with open(readme_path, 'rb') as stream:
         readme = stream.read().decode('utf8')
