@@ -9,6 +9,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 export PYBUILD_NAME=traffictoll
+export PYBUILD_INTERPRETERS=python3.8
 #export PYBUILD_INSTALL_ARGS=--install-lib=/usr/lib/python3/dist-packages/ --install-scripts=/usr/bin/
 
 %:
