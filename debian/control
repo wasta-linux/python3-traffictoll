@@ -8,5 +8,8 @@ Homepage: https://github.com/wasta-linux/python3-traffictoll
 
 Package: python3-traffictoll
 Architecture: all
-Depends: ${python3:Depends}, ${misc:Depends}
+Depends:
+ python3 (>=3.8) | python3.8,
+ ${python3:Depends},
+ ${misc:Depends}
 Description: Debian package forked from PyPI traffictoll package.
