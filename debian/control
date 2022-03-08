@@ -6,7 +6,7 @@ Build-Depends:
  debhelper (>= 11),
  dh-python,
  python3-setuptools,
- python3-all
+ python3.8-all
 Standards-Version: 3.9.7
 Homepage: https://github.com/wasta-linux/python3-traffictoll
 
