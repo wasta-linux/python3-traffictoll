@@ -30,8 +30,11 @@ setup(
     name='Wasta TrafficToll',
     version=version,
     description='NetLimiter-like bandwidth limiting and QoS for Linux',
-    python_requires='==3.*,>=3.6.0',
-    project_urls={"homepage": "https://github.com/wasta-linux/python3-traffictoll", "repository": "https://github.com/wasta-linux/python3-traffictoll"},
+    python_requires='==3.*,>=3.8.0',
+    project_urls={
+        "homepage": "https://github.com/wasta-linux/python3-traffictoll",
+        "repository": "https://github.com/wasta-linux/python3-traffictoll"
+    },
     author='Chris Braun, Nate Marti',
     author_email='nate_marti@sil.org',
     license='GPLv3',
