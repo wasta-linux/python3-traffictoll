@@ -1,3 +1,9 @@
+python3-traffictoll (0.4.1) jammy; urgency=medium
+
+  * Switch to dh v11 for better build compatibility.
+
+ -- Nate Marti <nate_marti@sil.org>  Thu, 10 Mar 2022 14:45:29 +0100
+
 python3-traffictoll (0.4) jammy; urgency=medium
 
   * Update for jammy builds.
