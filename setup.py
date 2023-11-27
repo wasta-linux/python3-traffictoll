@@ -1,13 +1,10 @@
 
-# -*- coding: utf-8 -*-
-
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
 
-import re
 from pathlib import Path
 
 # Get readme from README.md.
@@ -18,12 +15,12 @@ if readme_path.is_file():
     with open(readme_path, 'rb') as stream:
         readme = stream.read().decode('utf8')
 
-# Get version number from debian/changelog.
-chlog_path = repo_home / 'debian' / 'changelog'
-with open(chlog_path, 'r') as f:
-    first_line = f.readline()
-version = re.match('.*\((.*)\).*', first_line).group(1)
-
+# Get version from traffictoll.config.VERSION.
+with open('traffictoll/config.py') as f:
+    for line in f:
+        if line.startswith('VERSION'):
+            version = line.split('=')[1].replace("'", "").strip()
+            break
 
 setup(
     long_description=readme,

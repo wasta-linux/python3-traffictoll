@@ -1,3 +1,9 @@
+python3-traffictoll (0.4.1.1) noble; urgency=medium
+
+  * Set version in app rather than read it from debian/changelog.
+
+ -- Nate Marti <nate_marti@sil.org>  Mon, 27 Nov 2023 11:22:58 +0100
+
 python3-traffictoll (0.4.1) jammy; urgency=medium
 
   * Switch to dh v11 for better build compatibility.
